@@ -6,7 +6,7 @@ image: {
     src: "/tedx_black.png" ,
     alt: "tedx akita intl uni logo"
 }
-publishDate: "2026-02-07 16:28"
+publishDate: "2026-02-06 16:28"
 category: "Template"
 author: "IW"
 tags: [template]

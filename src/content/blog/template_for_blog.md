@@ -3,7 +3,7 @@ draft: false
 title: "Template for blog"
 snippet: "Just a template."
 image: {
-    src: "/tedx_black_p.png" ,
+    src: "/tedx_black.png" ,
     alt: "tedx akita intl uni logo"
 }
 publishDate: "2026-02-07 16:28"

@@ -24,4 +24,9 @@ Content 2
 
 ### SubTitle 2
 
+tedxwhite logo
+![tedxwhite.](../../assets/tedx_logo_white.png)
+
+tedxblack logo
+![A starry night sky.](/tedx_black.png)
 

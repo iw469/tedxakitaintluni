@@ -3,10 +3,10 @@ draft: false
 title: "Template for blog"
 snippet: "Just a template."
 image: {
-    src: "@assets/tedx_black.png",
+    src: "/tedx_black.png" ,
     alt: "tedx akita intl uni logo"
 }
-publishDate: "2026-02-07 15:30"
+publishDate: "2026-02-07 16:28"
 category: "Template"
 author: "IW"
 tags: [template]
@@ -21,4 +21,7 @@ Content1
 - bullet point 2
 
 Content 2
+
+### SubTitle 2
+
 

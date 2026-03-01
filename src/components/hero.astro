@@ -1,52 +1,25 @@
 ---
-import { Picture } from "astro:assets";
-import tedxPoster from "@/assets/tedx_black.png";
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
+import tedxPoster from "@/assets/indexbg.png";
 ---
-
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={tedxPoster}
-      alt="Tedx Poster"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-      class="max-h-[400px] w-auto object-contain"
-    />
-  </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Spark2026
-    </h1>
-    <p class="text-3xl mt-4 text-slate-600 max-w-xl">
-      "Ideas worth spreading."
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://www.instagram.com/tedxakitaintlu"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="simple-icons:instagram" />
-
-        Check for news!
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/iw469/tedxakitaintluni"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
-      </Link>
+<main class="bg-cover bg-center bg-no-repeat mt-0 pt-0" style={`background-image: url(${tedxPoster.src})`}>
+  <div class="flex items-end justify-center min-h-[calc(100vh-3rem)]">
+    <div class="text-center">
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center w-full max-w-xl mx-auto">
+        <Link
+          href="https://www.instagram.com/tedxakitaintlu"
+          target="_blank"
+          class="w-full flex gap-1 items-center justify-center"
+          rel="noopener">
+          <Icon class="text-white w-5 h-5" name="simple-icons:instagram" />
+          Check for news!
+        </Link>
+      </div>
+      <p class="text-3xl mt-2 mb-4 text-slate-600 max-w-xl">
+        "Ideas worth spreading."
+      </p>
+      </div>
     </div>
   </div>
 </main>

@@ -4,6 +4,8 @@ import { getFormattedDate } from "@/utils/all";
 import Layout from "./Layout.astro";
 
 const { frontmatter } = Astro.props;
+
+const titleLines = frontmatter.title ? frontmatter.title.split('\n') : [];
 ---
 
 <Layout title={frontmatter.title}>
@@ -14,7 +16,12 @@ const { frontmatter } = Astro.props;
       </span>
       <h1
         class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
-        {frontmatter.title}
+        {titleLines.map((line, i) => (
+          <>
+            {line}
+            {i !== titleLines.length - 1 ? <br /> : null}
+          </>
+        ))}
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
         <span class="text-gray-400">

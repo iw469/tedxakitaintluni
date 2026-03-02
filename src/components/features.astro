@@ -3,63 +3,58 @@
 import { Picture } from "astro:assets";
 import tedxSpark from "@/assets/tedx_logo_spark.png";
 import { Icon } from "astro-icon/components";
-
-
 ---
-
 <div class="mt-16 md:mt-1.5 mb-12">
-  <h2 id="overview" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
+<h2 id="overview" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
     概要
-  </h2>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8 items-center">
-    <!-- Left: Logo -->
-    <div class="text-center">
-      <Picture
-        src={tedxSpark}
-        alt="Tedx Poster"
-        widths={[200, 400, 600]}
-        sizes="(max-width: 800px) 100vw, 620px"
-        loading="eager"
-        format="avif"
-        class="max-h-[400px] w-auto object-contain"
-      />
-      <p class="text-3xl font-semibold text-gray-800 mt-4">
-        イベントテーマ：Spark 2026
-      </p>
-    </div>
-
-    <!-- Right: Info Box -->
-    <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
-      <h3 class="text-3xl font-bold mb-4 text-gray-800">イベント情報</h3>
-      <div class="space-y-3 text-gray-700 text-base">
-        <div>
-          <span class="font-bold">【テーマ】</span> Spark
-        </div>
-        <div>
-          <span class="font-bold">【日時】</span> 2025年6月13日(土)
-        </div>
-        <div>
-          <span class="font-bold">【場所】</span> 国際教養大学アラムナイホール<br/>
-          <span class="text-xs ml-4">〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2</span>
-        </div>
-        <div>
-          <span class="font-bold">【主催】</span> TEDxAkitaIntlU 運営委員会
-        </div>
-        <div>
-          <span class="font-bold">【形式】</span> ライブイベント
-        </div>
-        <div>
-          <span class="font-bold">【出演】</span> スピーカー3名、3つのワークショップ
-        </div>
-        <div>
-          <span class="font-bold">【観客】</span> 100 名<br/>
-          <span class="text-xs ml-4">国際教養大学学生 60 名、一般の方 40 名</span>
-        </div>
-        <div>
-          <span class="font-bold">【地域・世界への発信】</span><br/>
-          <span class="text-xs ml-4">TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿</span>
-        </div>
-      </div>
-    </div>
-  </div>
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
+<!-- Left: Logo -->
+<div class="flex justify-center items-center w-full min-w-0">
+<Picture
+src={tedxSpark}
+alt="Tedx Poster"
+widths={[200, 400, 600]}
+sizes="(max-width: 768px) calc(100vw - 32px), 50vw"
+loading="eager"
+format="avif"
+class="w-auto max-w-full h-auto object-contain"
+/>
 </div>
+<!-- Right: Info Box -->
+<div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+<h3 class="text-3xl font-bold mb-4 text-gray-800">イベント情報</h3>
+<div class="space-y-3 text-gray-700 text-base">
+<div>
+<span class="font-bold">【テーマ】</span> Spark
+</div>
+<div>
+<span class="font-bold">【日時】</span> 2025年6月13日(土)
+</div>
+<div>
+<span class="font-bold">【場所】</span> 国際教養大学アラムナイホール<br/>
+<span class="text-xs ml-4">〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2</span>
+</div>
+<div>
+<span class="font-bold">【主催】</span> TEDxAkitaIntlU 運営委員会
+</div>
+<div>
+<span class="font-bold">【形式】</span> ライブイベント
+</div>
+<div>
+<span class="font-bold">【出演】</span> スピーカー3名、3つのワークショップ
+</div>
+<div>
+<span class="font-bold">【観客】</span> 100 名<br/>
+<span class="text-xs ml-4">国際教養大学学生 60 名、一般の方 40 名</span>
+</div>
+<div>
+<span class="font-bold">【地域・世界への発信】</span><br/>
+<span class="text-xs ml-4">TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="sponsor"></div>

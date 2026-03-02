@@ -1,18 +1,15 @@
 ---
 // @ts-ignore
 import { Icon } from "astro-icon/components";
+import Yuri from "@/assets/Yuri.png";
+import { Image } from 'astro:assets';
 ---
 
 <div class="mt-24">
-  <h2 class="text-center text-5xl font-bold text-slate-500">協賛企業</h2>
+  <h2 class="text-center text-slate-500 text-4xl md:text-5xl font-bold">協賛企業</h2>
   <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
 
-    <Icon class="size-8 md:size-12" name="simple-icons:react" />
-    <Icon class="size-8 md:size-12" name="simple-icons:svelte" />
-    <Icon class="size-8 md:size-12" name="simple-icons:astro" />
-    <Icon class="size-8 md:size-16" name="simple-icons:tailwindcss" />
-    <Icon class="size-8 md:size-16" name="simple-icons:alpinedotjs" />
-    <Icon class="size-8 md:size-12" name="simple-icons:vercel" />
+    <Image src={Yuri} alt="Yuri" class="h-8 md:h-12 w-auto" />
 
   </div>
 </div>

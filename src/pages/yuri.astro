@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Logos from "@/components/logos.astro";
+import Team from "@/components/team.astro";
+import Cta from "@/components/cta.astro";
+import YuriImg from "@/assets/Yuri.png";
+
+const title = "YURIホールディングス株式会社";
+const items = [
+  { label: "【社名】", value: "YURIホールディングス株式会社" },
+  { label: "【紹介】", value: "\nYURIホールディングスは、秋田県由利本荘市を中心に拠点を置く企業グループです。\n1955年に電子部品製造会社として創業し、現在はのものづくり事業とソリューション事業計4事業を展開しています。\n地域社会への貢献を目指し、持続可能な社会の実現に向けた取り組みを推進。\nグループ一体となったワンストップサービスで変化をチャンスに変え、新たな価値を提供し続けます。\n由利工業株式会社 / 秋田精工株式会社 / 横手精工株式会社" },
+  { label: "【ページ】", value: "https://yuri-hd.co.jp/" },
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={YuriImg} imageAlt="Yuri logo" imageHref="https://yuri-hd.co.jp/" heading="協賛枠" headingId="yuri" items={items} />
+    <Cta />
+  </Container>
+</Layout>

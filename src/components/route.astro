@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components";
 </h2>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4 mt-8 items-stretch px-2 sm:px-2 md:px-0">
     <!-- Left: Info Box (moved) -->
-    <div class="order-2 lg:order-1 bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+    <div class="order-2 lg:order-1 bg-gray-50 rounded-lg shadow-lg p-6 text-left h-96 md:h-[520px]">
         <h3 class="text-3xl font-bold mb-4 text-gray-800">行き方</h3>
         <div class="space-y-3 text-gray-700 text-base">
             <div>
@@ -29,7 +29,7 @@ import { Icon } from "astro-icon/components";
         </div>
     </div>
     <!-- Middle: Map -->
-    <div class="order-3 lg:order-2 flex justify-center items-stretch w-full min-w-0 h-72 md:h-96">
+    <div class="order-3 lg:order-2 flex justify-center items-stretch w-full min-w-0 h-96 md:h-[520px]">
         <iframe
             src="https://www.google.com/maps?q=%E5%9B%BD%E9%9A%9B%E6%95%99%E8%82%B2%E5%A4%A7%E5%AD%A6%E3%82%A2%E3%83%A9%E3%83%A0%E3%83%8A%E3%82%A4%E3%83%9B%E3%83%BC%E3%83%AB+193-2&output=embed"
             class="w-full h-full border-0 rounded-md"
@@ -40,7 +40,7 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <!-- Right: Image (moved) -->
-    <div class="order-1 lg:order-3 flex justify-end items-center w-full min-w-0 h-72 md:h-full">
+    <div class="order-1 lg:order-3 flex justify-end items-center w-full min-w-0 h-96 md:h-[520px]">
         <Picture
             src={alumni}
             alt="Alumni Hall Picture"

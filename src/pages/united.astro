@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Logos from "@/components/logos.astro";
+import Team from "@/components/team.astro";
+import Cta from "@/components/cta.astro";
+import UnitedImg from "@/assets/United.gif";
+
+const title = "ユナイテッド計画株式会社";
+const items = [
+  { label: "【社名】", value: "ユナイテッド計画株式会社" },
+  { label: "【紹介】", value: "\nユナイテッド計画は、産業廃棄物処理・リサイクル・再生可能エネルギー分野において\n期待を超える社会的価値と財務的価値を創り上げ、社会から得るものよりもより多くのものを\n世の中に対しお届けし、地域が直面する課題を解決する企業でありたいと考えています。" },
+  {label: "【ページ】", value: "https://united.co.jp/"},
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={UnitedImg} imageAlt="United logo" imageHref="https://united.co.jp/" heading="協賛枠" headingId="united" items={items} />
+    <Cta />
+  </Container>
+</Layout>

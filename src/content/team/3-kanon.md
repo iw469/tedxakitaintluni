@@ -6,5 +6,5 @@ avatar: {
     src: "/かのん写真.JPEG",
     alt: "かのん"
 }
-publishDate: "2026-1-1 15:39"
+publishDate: "2026-01-01 15:39"
 ---

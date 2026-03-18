@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "Template for blog"
 snippet: "Just a template."
 image: {

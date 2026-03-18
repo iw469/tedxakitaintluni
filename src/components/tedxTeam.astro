@@ -1,0 +1,77 @@
+---
+// Reusable company/info block
+// Props: image (string or imported asset), imageAlt, heading, items, headingId
+// @ts-ignore
+import { Image } from "astro:assets";
+
+const {
+    image = "/assets/tedx_logo_spark.png",
+    imageAlt = "Tedx Poster",
+    imageHref = "",
+    heading = "概要",
+    headingId = "overview",
+    headingClass = "text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400",
+    items = [
+        { label: "【テーマ】", value: "Spark" },
+        { label: "【日時】", value: "2025年6月13日(土)" },
+        {
+            label: "【場所】",
+            value: "国際教養大学アラムナイホール\n〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2",
+            small: true,
+        },
+        { label: "【主催】", value: "TEDxAkitaIntlU 運営委員会" },
+        { label: "【形式】", value: "ライブイベント" },
+        { label: "【出演】", value: "スピーカー3名、3つのワークショップ" },
+        { label: "【観客】", value: "100 名\n国際教養大学学生 60 名、一般の方 40 名", small: true },
+        {
+            label: "【地域・世界への発信】",
+            value: "TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿",
+            small: true,
+        },
+    ],
+} = Astro.props;
+---
+
+<div class="mt-16 md:mt-1.5 mb-12">
+    <h2 id={headingId} class={headingClass}>{heading}</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
+                <!-- Left: Image -->
+                <div class="flex justify-center items-center w-full min-w-0">
+                        {imageHref ? (
+                            <a href={imageHref} target="_blank" rel="noopener noreferrer">
+                                <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                            </a>
+                        ) : (
+                            <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                        )}
+                </div>
+        <!-- Right: Info Box -->
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+            <h3 class="text-3xl font-bold mb-4 text-gray-800">チーム情報</h3>
+            <div class="space-y-3 text-gray-700 text-xl">
+                {items.map((item) => {
+                    const isUrl = (item.href && item.href.length) || /^https?:\/\//i.test(item.value);
+                    return (
+                        <div>
+                            <span class="font-bold text-xl">{item.label}</span>
+                            {" "}
+                            <span class={item.small ? "text-xs ml-4" : ""}>
+                                {isUrl ? (
+                                    <a href={item.href || item.value} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{item.value}</a>
+                                ) : (
+                                    item.value.split("\n").map((line, i, arr) => (
+                                        <>
+                                            {line}
+                                            {i !== arr.length - 1 ? <br /> : null}
+                                        </>
+                                    ))
+                                )}
+                            </span>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sponsor"></div>

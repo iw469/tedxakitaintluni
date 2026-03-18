@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 
 // Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const publishedTeamMembers = (
+  await getCollection("team", ({ data }) => !data.draft && data.publishDate < new Date())
+).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 ---
 
 <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">

@@ -2,16 +2,46 @@
 // @ts-ignore
 import { Icon } from "astro-icon/components";
 import Yuri from "@/assets/Yuri.png";
+import Ono from "@/assets/Ono.jpg";
+import United from "@/assets/United.gif";
+
 import { Image } from 'astro:assets';
 ---
 
 <div class="mt-24">
   <h2 class="text-center text-slate-500 text-4xl md:text-5xl font-bold">協賛企業</h2>
-  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
+  <div class="mt-10 space-y-12 w-full">
 
-    <a href="/yuri" class="inline-block">
-      <Image src={Yuri} alt="Yuri" class="h-8 md:h-12 w-auto cursor-pointer" />
-    </a>
+    <!-- First group -->
+    <section>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">ファースト</h3>
+      <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
+        <a href="/united" class="inline-block">
+          <Image src={United} alt="United" class="h-10 md:h-16 w-auto cursor-pointer" />
+        </a>
+      </div>
+    </section>
+
+    <!-- Second group -->
+    <section>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">セカンド</h3>
+      <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
+
+      </div>
+    </section>
+
+    <!-- Third group -->
+    <section>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">サード</h3>
+      <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
+        <a href="/yuri" class="inline-block" aria-label="YURI ホールディングス">
+          <Image src={Yuri} alt="Yuri" class="h-8 md:h-12 w-auto cursor-pointer" />
+        </a>
+        <a href="/ono" class="inline-block">
+          <Image src={Ono} alt="Ono" class="h-8 md:h-12 w-auto cursor-pointer" />
+        </a>
+      </div>
+    </section>
 
   </div>
 </div>

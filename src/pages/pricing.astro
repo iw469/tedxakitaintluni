@@ -5,59 +5,33 @@ import Sectionhead from "@/components/sectionhead.astro";
 import PricingCard from "@/components/pricing.astro";
 
 const pricing = [
-  {
-    name: "Personal",
-    price: "Free",
+    {
+    name: "一般用申込リンク",
+    price: "?円",
     popular: false,
-    features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
-    ],
+    features: [],
     button: {
-      text: "Get Started",
+      text: "申し込み",
       link: "/",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "AIU学部生・院生・教職員リンク",
+    price: "?円",
     popular: true,
-    features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
-    ],
+    features: [],
     button: {
-      text: "Get Started",
+      text: "申し込み",
       link: "#",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "招待客リンク",
+    price: "?円",
     popular: false,
-    features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
-    ],
+    features: [],
     button: {
-      text: "Contact us",
+      text: "申し込み",
       link: "/contact",
     },
   },
@@ -67,9 +41,9 @@ const pricing = [
 <Layout title="Pricing">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">チケット情報</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        支払いは当日か銀行振り込みでお願いします。
       </Fragment>
     </Sectionhead>
 

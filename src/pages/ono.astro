@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Logos from "@/components/logos.astro";
+import Team from "@/components/team.astro";
+import Cta from "@/components/cta.astro";
+import OnoImg from "@/assets/Ono.jpg";
+
+const title = "株式会社オノプロックス";
+const items = [
+  { label: "【社名】", value: "株式会社オノプロックス" },
+  { label: "【紹介】", value: "\n秋田市新屋に拠点を置く、地域密着型の企業です。ガス、灯油、住宅機器などの販売を行っております。地域の皆様のため、変わらぬ安心と快適をご提供します。" },
+  { label: "【ページ】", value: "https://onoprox.com/" },
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={OnoImg} imageAlt="Ono logo" imageHref="https://onoprox.com/" heading="協賛枠" headingId="ono" items={items} />
+    <Cta />
+  </Container>
+</Layout>

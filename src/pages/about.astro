@@ -6,7 +6,7 @@ import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import TedxTeam from "@/components/tedxTeam.astro"
-import temp from "@/assets/tedx_black.png"
+import GandF from "@/assets/GandF.jpg"
 
 // Filter team entries with 'draft: false' & date before current date
 const items = [
@@ -53,6 +53,6 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         </div>
       </div>
     </div>
-    <TedxTeam image={temp} imageAlt="General and Finance Picture" heading="General & Finance" headingId="" items={items} />
+    
   </Container>
 </Layout>

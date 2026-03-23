@@ -37,13 +37,21 @@ const {
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
                 <!-- Left: Image -->
                 <div class="flex justify-center items-center w-full min-w-0">
-                        {imageHref ? (
-                            <a href={imageHref} target="_blank" rel="noopener noreferrer">
-                                <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
-                            </a>
-                        ) : (
-                            <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
-                        )}
+                                {imageHref ? (
+                                    <a href={imageHref} target="_blank" rel="noopener noreferrer">
+                                        {typeof image === "string" ? (
+                                            <img src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                        ) : (
+                                            <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                        )}
+                                    </a>
+                                ) : (
+                                    typeof image === "string" ? (
+                                        <img src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                    ) : (
+                                        <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                    )
+                                )}
                 </div>
         <!-- Right: Info Box -->
         <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">

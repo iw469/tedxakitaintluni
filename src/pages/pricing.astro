@@ -6,33 +6,33 @@ import PricingCard from "@/components/pricing.astro";
 
 const pricing = [
     {
-    name: "AIU学部生・院生・教職員",
+    name: "AIU学部生・院生",
     price: "500円",
     popular: false,
     features: [],
     button: {
       text: "申し込み",
-      link: "/",
+      link: "/404",
     },
   },
   {
-    name: "懇親会",
-    price: "200円",
+    name: "一般",
+    price: "950円",
     popular: true,
     features: [],
     button: {
       text: "申し込み",
-      link: "#",
+      link: "/404",
     },
   },
   {
-    name: "学生．一般",
-    price: "学生700円　一般950円",
+    name: "学生",
+    price: "学生700円",
     popular: false,
     features: [],
     button: {
       text: "申し込み",
-      link: "/contact",
+      link: "/404",
     },
   },
   
@@ -44,7 +44,7 @@ const pricing = [
     <Sectionhead>
       <Fragment slot="title">チケット情報</Fragment>
       <Fragment slot="desc">
-        <p>支払いは当日か銀行振り込みでお願いします。</p>
+        <p>支払い方法は当日支払いのみとなっております。</p>
         <p>４月１日より申し込み開始です。</p>
       </Fragment>
     </Sectionhead>

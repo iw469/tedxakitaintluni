@@ -7,11 +7,22 @@ import Container from "@/components/container.astro";
 import Sectionhead from "@/components/sectionhead.astro";
 import TedxTeam from "@/components/tedxTeam.astro"
 import GandF from "@/assets/GandF.jpg"
+import ST from "@/assets/ST.png"
+import TG from "@/assets/T&G.jpg"
 
 // Filter team entries with 'draft: false' & date before current date
-const items = [
-  { label: "【チーム】", value: "General & Finance" },
+const itemsGF = [
   { label: "【役目】", value: "\n・協賛企業様を集める\n・協賛企業様や大学との連絡\n・その他外部の方との連絡" },
+  { label: "【チームリーダーから】", value: "まだ" },
+];
+
+const itemsS = [
+  { label: "【役目】", value: "\n・原稿・ワークショップ作りのサポート\n・抑揚・表情などを含めたTalk練習のサポート\n・日英・英日翻訳" },
+  { label: "【チームリーダーから】", value: "スピーカーチームでは、スピーカー様のお話を整理し、自分の提案を分かりやすく伝えます。自身の言語能力を磨きつつイベントの華を咲かせる影の立役者です。" },
+];
+
+const itemsTG = [
+  { label: "【役目】", value: "\n・ウェブサイトやインスタグラムの運用 \n・プロモーションビデオの作成\n・イベントのグッズやポスターの作成" },
   { label: "【チームリーダーから】", value: "まだ" },
 ];
 
@@ -53,6 +64,8 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
         </div>
       </div>
     </div>
-    
+    <TedxTeam heading="General & Finance Team" image={GandF} items={itemsGF} teamMembers={publishedTeamMembers} />
+    <TedxTeam heading="Speaker Team" image={ST} items={itemsS} teamMembers={publishedTeamMembers} />
+    <TedxTeam heading="Tech & Graphic Team" image={TG} items={itemsTG} teamMembers={publishedTeamMembers} />
   </Container>
 </Layout>

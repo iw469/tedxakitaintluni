@@ -1,0 +1,80 @@
+---
+// @ts-ignore
+import { Picture } from "astro:assets";
+import yellowball from "@/assets/yellowball.png";
+---
+
+<div class="mt-16 md:mt-1.5 mb-12">
+  <h2 id="past-events" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
+    過去のイベント
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-8 items-start px-4 sm:px-2 md:px-0">
+    <!-- Left: Image with Odyssey2025 Text -->
+    <div class="flex flex-col items-center justify-start">
+      <h3 class="text-3xl font-bold mb-6 text-gray-800">過去のイベントの様子</h3>
+      <div class="relative w-full max-w-sm aspect-square flex items-center justify-center">
+        <Picture
+          src={yellowball}
+          alt="Odyssey 2025"
+          widths={[300, 500]}
+          sizes="(max-width: 768px) calc(100vw - 32px), 50vw"
+          loading="eager"
+          format="avif"
+          class="w-full h-full object-contain"
+        />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-4xl lg:text-4xl text-black drop-shadow-lg">
+            Odyssey2025
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: YouTube Videos Grid -->
+    <div class="flex flex-col items-center justify-start">
+      <h3 class="text-3xl font-bold mb-6 text-gray-800 w-full text-center">イベント映像</h3>
+      <div class="grid grid-cols-2 gap-4 w-full">
+        <!-- Video 1 -->
+        <div class="aspect-video">
+          <iframe
+            class="w-full h-full rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/0tRmzrPCFlk?si=RJVjXBZtKSid1Way"
+            title="YouTube video 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="aspect-video">
+          <iframe
+            class="w-full h-full rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/djLRK0etpCI?si=cFwwCVv0piWHCIaW"
+            title="YouTube video 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="aspect-video">
+          <iframe
+            class="w-full h-full rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/P2c7ix7Idhs?si=_a88sylos8lBNpjZ"
+            title="YouTube video 3"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="aspect-video">
+          <iframe
+            class="w-full h-full rounded-lg shadow-md"
+            src="https://www.youtube.com/embed/_T6tpefuM3Q?si=mdNZQU7dXRPz0Tew"
+            title="YouTube video 4"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

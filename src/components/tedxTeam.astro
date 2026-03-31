@@ -6,28 +6,16 @@ import { Image } from "astro:assets";
 
 const {
     image = "/assets/tedx_logo_spark.png",
-    imageAlt = "Tedx Poster",
+    imageAlt = "Team Image",
     imageHref = "",
-    heading = "概要",
+    imageClass = "w-full max-w-[340px] h-auto object-contain",
+    imageWidths = [240, 360, 480],
+    imageSizes = "(max-width: 768px) 70vw, 340px",
+    heading = "チーム",
     headingId = "overview",
     headingClass = "text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400",
     items = [
-        { label: "【テーマ】", value: "Spark" },
-        { label: "【日時】", value: "2025年6月13日(土)" },
-        {
-            label: "【場所】",
-            value: "国際教養大学アラムナイホール\n〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2",
-            small: true,
-        },
-        { label: "【主催】", value: "TEDxAkitaIntlU 運営委員会" },
-        { label: "【形式】", value: "ライブイベント" },
-        { label: "【出演】", value: "スピーカー3名、3つのワークショップ" },
-        { label: "【観客】", value: "100 名\n国際教養大学学生 60 名、一般の方 40 名", small: true },
-        {
-            label: "【地域・世界への発信】",
-            value: "TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿",
-            small: true,
-        },
+        
     ],
 } = Astro.props;
 ---
@@ -40,16 +28,16 @@ const {
                                 {imageHref ? (
                                     <a href={imageHref} target="_blank" rel="noopener noreferrer">
                                         {typeof image === "string" ? (
-                                            <img src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                            <img src={image} alt={imageAlt} class={imageClass} />
                                         ) : (
-                                            <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                            <Image src={image} alt={imageAlt} widths={imageWidths} sizes={imageSizes} quality={65} class={imageClass} />
                                         )}
                                     </a>
                                 ) : (
                                     typeof image === "string" ? (
-                                        <img src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                        <img src={image} alt={imageAlt} class={imageClass} />
                                     ) : (
-                                        <Image src={image} alt={imageAlt} class="w-auto max-w-full h-auto object-contain" />
+                                        <Image src={image} alt={imageAlt} widths={imageWidths} sizes={imageSizes} quality={65} class={imageClass} />
                                     )
                                 )}
                 </div>

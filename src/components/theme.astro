@@ -1,0 +1,49 @@
+---
+// @ts-ignore
+import { Picture } from "astro:assets";
+import tedxSpark from "@/assets/tedx_logo_spark.png";
+import { Icon } from "astro-icon/components";
+---
+<div class="mt-16 md:mt-1.5 mb-12">
+<h2 id="theme" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
+    テーマ
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
+<!-- Left: Logo -->
+<div class="flex justify-center items-center w-full min-w-0">
+<Picture
+src={tedxSpark}
+alt="Tedx Poster"
+widths={[200, 400, 600]}
+sizes="(max-width: 768px) calc(100vw - 32px), 50vw"
+loading="eager"
+format="avif"
+class="w-auto max-w-full h-auto object-contain"
+/>
+</div>
+<!-- Right: Info Box -->
+<div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+<h3 class="text-3xl font-bold mb-4 text-gray-800">テーマ説明</h3>
+<div class="mb-6 pb-6">
+<div class="space-y-3 text-gray-700 text-sm leading-relaxed">
+<p class="text-center italic text-gray-600">
+今日一日で、明日の何を変えられるのか。
+</p>
+<p class="text-center text-gray-700 font-medium">
+私たちは、変化のきっかけになりたい。
+</p>
+<div class="space-y-2 text-gray-600 mt-4">
+<p>私たちのイベントを通じて何かを得て帰ってほしい。</p>
+<p>明日から、少しだけ頑張れるような。</p>
+<p>少しだけ秋田を愛せるような。</p>
+<p>少しだけ、話したくなる人が増えるような。</p>
+</div>
+<p class="text-center font-semibold text-gray-900 mt-4">
+ワクワクできるイベントを作りたい。
+</p>
+<p class="text-center text-gray-700 font-bold mt-3">
+十人十色の光の、Sparkになりたい。
+</p>
+</div>
+</div>
+

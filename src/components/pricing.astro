@@ -1,6 +1,5 @@
 ---
 import { Tick } from "@/components/ui/icons";
-import Link from "@/components/ui/link.astro";
 
 const { plan } = Astro.props;
 ---
@@ -32,12 +31,18 @@ const { plan } = Astro.props;
         ))
       }
     </ul><div class="flex mt-8">
-      <Link
+      <a
         href={plan.button.link || "#"}
-        block
-        style={plan.popular ? "primary" : "outline"}>
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={[
+          "rounded-sm text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-5 py-2.5",
+          plan.popular
+            ? "bg-black text-white hover:bg-gray-800 border-2 border-transparent"
+            : "bg-white border-2 border-black hover:bg-gray-100 text-black",
+        ]}>
         {plan.button.text || "Get Started"}
-      </Link>
+      </a>
     </div>
   </div>
 </div>

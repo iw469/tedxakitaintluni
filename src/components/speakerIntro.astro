@@ -1,0 +1,48 @@
+---
+// @ts-ignore
+import { Image } from "astro:assets";
+
+const {
+  image,
+  imageAlt = "Speaker photo",
+  name = "Speaker Name",
+  talkTheme = "",
+  introduction = "Speaker introduction",
+  title = "登壇者紹介",
+} = Astro.props;
+---
+
+<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 md:gap-8 items-center mt-10">
+  <div class="flex flex-col items-center text-center">
+    <div class="w-full max-w-[240px] overflow-hidden rounded-xl shadow-md bg-gray-100">
+      {typeof image === "string" ? (
+        <img src={image} alt={imageAlt} class="w-full aspect-[4/5] object-cover" />
+      ) : (
+        <Image
+          src={image}
+          alt={imageAlt}
+          widths={[240, 360, 480]}
+          sizes="(max-width: 768px) 70vw, 240px"
+          quality={72}
+          class="w-full aspect-[4/5] object-cover"
+        />
+      )}
+    </div>
+    <h3 class="mt-4 text-2xl font-bold text-gray-900">{name}</h3>
+  </div>
+
+  <div class="bg-gray-50 rounded-xl shadow-lg p-6 md:p-8 text-left">
+    <h4 class="text-2xl font-bold text-gray-800 mb-4">{title}</h4>
+    {talkTheme ? (
+      <div class="mb-4 p-3 rounded-lg bg-white border border-gray-200">
+        <p class="text-sm font-semibold text-gray-500">トークテーマ</p>
+        <p class="text-base md:text-lg font-medium text-gray-900">{talkTheme}</p>
+      </div>
+    ) : null}
+    <div class="text-gray-700 leading-relaxed space-y-2">
+      {introduction.split("\n").map((line) => (
+        <p>{line}</p>
+      ))}
+    </div>
+  </div>
+</div>

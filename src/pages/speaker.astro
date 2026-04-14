@@ -1,12 +1,56 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import SpeakerIntro from "@/components/speakerIntro.astro";
 import PastYearVideo2025 from "@/components/pastyearvideo2025.astro";
 import PastYearVideo2024 from "@/components/pastyearvideo2024.astro";
+import Makabe from "@/assets/makabe.jpg";
+import Tanaka from "@/assets/tanaka.jpg";
+import Kato from "@/assets/kato.jpg";
+
+const speakers = [
+  {
+    name: "真壁 香穂様",
+    image: Makabe,
+    imageAlt: "真壁 香穂様",
+    talkTheme: "「衣」",
+    introduction:
+      "イメージコンサルタント／Urmavie代表。\n外見の変化をきっかけに「自分らしく生きる人を増やしたい」という想いから、宮城県仙台市でイメージコンサルティングサロンを運営。外見ブランディングやファッションを通じて、自信を持って人生を選べる女性をサポートしている。自身も19歳で出産し、子育てと仕事を両立しながら起業。現在は女性の可能性を広げる活動にも力を入れている。",
+  },
+  /*
+  {
+    name: "田中 徳子様",
+    image: Tanaka,
+    imageAlt: "田中 徳子様",
+    talkTheme: "「食」",
+    introduction:
+      "株式会社ワンダーマート\n代表取締役　たなかのりこ（田中徳子）\n\n2013年　株式会社ワンダーマートを設立。\n6次産業化による農家の食品製造業への参入や、異業種からの食品製造業・飲食業への参入が広がり、商品開発のあり方は多様になっている。そんな流れの中で、新しい視点での商品開発には専門性が必要だと考え、アドバイス事業を行う会社を組織化した。「やりたいこと」と「続けていけること」を両立させるため、事業者に寄り添いながら、実行まで伴走する支援を行っている。",
+  },
+  {
+    name: "加藤 茉子様",
+    image: Kato,
+    imageAlt: "加藤 茉子様",
+    talkTheme: "「住」",
+    introduction:
+      "複数の国・地域で育ち学んだ経験をもとに、「Learning to live together（共に生きることを学ぶ）」を軸とした教育を実践。グローバルとローカルの視点を総合し、生涯にわたり学び続け、社会に前向きな変化をもたらす人材を生み出すべく活動している。\n\nDrawing on my experience growing up across countries and regions, I pursue an educational approach centered on “Learning to live together.” By integrating both global and local perspectives, I seek to nurture lifelong learners who contribute to positive change in society.",
+  },
+  */
+];
 ---
 
 <Layout title="Speaker">
   <Container>
+    <Sectionhead>
+      <Fragment slot="title">登壇者紹介</Fragment>
+      <Fragment slot="desc">3名のスピーカーを紹介します。</Fragment>
+    </Sectionhead>
+
+    <div class="mt-12">
+      {speakers.map((speaker) => <SpeakerIntro {...speaker} />)}
+    </div>
+
     <PastYearVideo2025 />
     <PastYearVideo2024 />
+  </Container>
 </Layout>

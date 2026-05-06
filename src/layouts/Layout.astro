@@ -8,6 +8,7 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
 const siteUrl = Astro.site?.toString();
@@ -19,11 +20,15 @@ const resolvedImageWithDomain = siteUrl
   ? new URL("/opengraph.jpg", siteUrl).toString()
   : undefined;
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "Tedxakitaintluni"
-  : "Tedxakitaintluni - Independently organized TED event";
+  : "TEDxAkitaIntlU | TEDx Akita International University Event";
+
+const seoDescription =
+  description ??
+  "TEDxAkitaIntlU is the TEDx event at Akita International University in Japan, sharing ideas worth spreading through talks, workshops, and community events.";
 ---
 
 <!doctype html>
@@ -37,7 +42,7 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Tedxakitaintluni is a TED event independently organized by the students from Akita International University."
+      description={seoDescription}
       canonical={canonicalURL}
       twitter={{
         creator: "@tedxakitaintluni",
@@ -50,7 +55,7 @@ const makeTitle = title
               basic: {
                 url: canonicalURL,
                 type: "website",
-                title: `Tedxakitaintluni - Independently organized TED event`,
+                title: makeTitle,
                 image: resolvedImageWithDomain,
               },
               image: {

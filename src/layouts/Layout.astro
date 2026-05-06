@@ -3,19 +3,21 @@ import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
-import "@fontsource-variable/bricolage-grotesque";
+
 import "../styles/global.css";
 
 export interface Props {
   title: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const siteUrl = Astro.site?.toString();
+const canonicalURL = siteUrl
+  ? new URL(Astro.url.pathname, siteUrl).toString()
+  : undefined;
 
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
+const resolvedImageWithDomain = siteUrl
+  ? new URL("/opengraph.jpg", siteUrl).toString()
+  : undefined;
 
 const { title } = Astro.props;
 
@@ -42,17 +44,21 @@ const makeTitle = title
         site: "tedxakitaintluni",
         card: "summary_large_image",
       }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Tedxakitaintluni - Independently organized TED event`,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: "Homepage Screenshot",
-        },
-      }}
+      openGraph={
+        canonicalURL && resolvedImageWithDomain
+          ? {
+              basic: {
+                url: canonicalURL,
+                type: "website",
+                title: `Tedxakitaintluni - Independently organized TED event`,
+                image: resolvedImageWithDomain,
+              },
+              image: {
+                alt: "Homepage Screenshot",
+              },
+            }
+          : undefined
+      }
     />
   </head>
   <body>

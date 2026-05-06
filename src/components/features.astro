@@ -1,7 +1,7 @@
 ---
 // @ts-ignore
 import { Picture } from "astro:assets";
-import tedxSpark from "@/assets/tedx_logo_spark.png";
+import tedxSpark from "@/assets/SparkPoster.png";
 import { Icon } from "astro-icon/components";
 ---
 <div class="mt-16 md:mt-1.5 mb-12">
@@ -14,11 +14,11 @@ import { Icon } from "astro-icon/components";
 <Picture
 src={tedxSpark}
 alt="Tedx Poster"
-widths={[200, 400, 600]}
-sizes="(max-width: 768px) calc(100vw - 32px), 50vw"
+widths={[400, 800, 1200, 1600]}
+sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 36rem"
 loading="eager"
 format="avif"
-class="w-auto max-w-full h-auto object-contain"
+class="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
 />
 </div>
 <!-- Right: Info Box -->

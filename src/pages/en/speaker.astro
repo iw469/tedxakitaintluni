@@ -1,0 +1,54 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import SpeakerIntro from "@/components/speakerIntro.astro";
+import PastYearVideo2025 from "@/components/pastyearvideo2025.astro";
+import PastYearVideo2024 from "@/components/pastyearvideo2024.astro";
+import Makabe from "@/assets/makabe.jpg";
+import Tanaka from "@/assets/tanaka.jpg";
+import Kato from "@/assets/kato.jpg";
+
+const speakers = [
+  {
+    name: "Ms. Kaho Makabe",
+    image: Makabe,
+    imageAlt: "Kaho Makabe",
+    talkTheme: "Clothing",
+    introduction:
+      "Image consultant and representative of Urmavie.\nDriven by a desire to help people live more authentically through external transformation, she runs an image consulting salon in Sendai, Miyagi. Through visual branding and fashion, she supports women in making confident life choices. She gave birth at 19, later launched her business while balancing parenting and work, and now works to expand opportunities for women.",
+  },
+  {
+    name: "Ms. Noriko Tanaka",
+    image: Tanaka,
+    imageAlt: "Noriko Tanaka",
+    talkTheme: "Food",
+    introduction:
+      "CEO of Wondermart Co., Ltd.\nFounded Wondermart in 2013. As more farmers and businesses from other sectors enter food manufacturing, product development has become more diverse. Believing that fresh viewpoints require professional expertise, she established an advisory business to support this field. She works closely with business owners and accompanies them through execution so they can balance what they want to do with what they can sustainably continue.",
+  },
+  {
+    name: "Ms. Mako Kato",
+    image: Kato,
+    imageAlt: "Mako Kato",
+    talkTheme: "Living",
+    introduction:
+      "Drawing on experiences of growing up and learning across multiple countries and regions, she practices education centered on Learning to Live Together. By integrating global and local perspectives, she aims to nurture lifelong learners who create positive social change.",
+  },
+];
+---
+
+<Layout title="Speaker">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Speakers</Fragment>
+      <Fragment slot="desc">Meet our three speakers.</Fragment>
+    </Sectionhead>
+
+    <div class="mt-12">
+      {speakers.map((speaker) => <SpeakerIntro {...speaker} lang="en" title="Speaker Profile" />)}
+    </div>
+
+    <PastYearVideo2025 />
+    <PastYearVideo2024 />
+  </Container>
+</Layout>

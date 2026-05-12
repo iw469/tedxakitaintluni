@@ -9,7 +9,10 @@ const {
   talkTheme = "",
   introduction = "Speaker introduction",
   title = "登壇者紹介",
+  lang = "ja",
 } = Astro.props;
+
+const isEn = lang === "en";
 ---
 
 <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 md:gap-8 items-center mt-10">
@@ -35,12 +38,12 @@ const {
     <h4 class="text-2xl font-bold text-gray-800 mb-4">{title}</h4>
     {talkTheme ? (
       <div class="mb-4 p-3 rounded-lg bg-white border border-gray-200">
-        <p class="text-sm font-semibold text-gray-500">トークテーマ</p>
+        <p class="text-sm font-semibold text-gray-500">{isEn ? "Talk Theme" : "トークテーマ"}</p>
         <p class="text-base md:text-lg font-medium text-gray-900">{talkTheme}</p>
       </div>
     ) : null}
     <div class="text-gray-700 leading-relaxed space-y-2">
-      {introduction.split("\n").map((line) => (
+      {introduction.split("\n").map((line: string) => (
         <p>{line}</p>
       ))}
     </div>

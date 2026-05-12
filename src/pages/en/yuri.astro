@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Cta from "@/components/cta.astro";
+import YuriImg from "@/assets/Yuri.png";
+
+const title = "YURI Holdings Co., Ltd.";
+const items = [
+  { label: "[Company]", value: "YURI Holdings Co., Ltd." },
+  {
+    label: "[Profile]",
+    value:
+      "YURI Holdings is a corporate group based mainly in Yurihonjo, Akita. Founded in 1955 as an electronic components manufacturer, it now operates across manufacturing and solution businesses. The group advances sustainability initiatives and provides one-stop services to turn change into new value for the region.",
+  },
+  { label: "[Website]", value: "https://yuri-hd.co.jp/" },
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={YuriImg} imageAlt="Yuri logo" imageHref="https://yuri-hd.co.jp/" heading="Sponsor Tier" headingId="yuri" infoTitle="Company Information" items={items} />
+    <Cta lang="en" />
+  </Container>
+</Layout>

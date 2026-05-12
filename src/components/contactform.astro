@@ -1,5 +1,8 @@
 ---
 import Button from "./ui/button.astro";
+
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
 ---
 
 <!-- To make this contact form work, create your free access key from https://web3forms.com/
@@ -16,43 +19,43 @@ import Button from "./ui/button.astro";
   <div class="mb-5">
     <input
       type="text"
-      placeholder="名前．所属"
+      placeholder={isEn ? "Name / Organization" : "名前．所属"}
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       name="name"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      名前を入れてください。
+      {isEn ? "Please enter your name." : "名前を入れてください。"}
     </div>
   </div>
   <div class="mb-5">
     <label for="email_address" class="sr-only">Email Address</label><input
       id="email_address"
       type="email"
-      placeholder="メールアドレス"
+      placeholder={isEn ? "Email address" : "メールアドレス"}
       name="email"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
     />
     <div class="empty-feedback text-red-400 text-sm mt-1">
-      メールアドレスを入れてください。
+      {isEn ? "Please enter your email address." : "メールアドレスを入れてください。"}
     </div>
     <div class="invalid-feedback text-red-400 text-sm mt-1">
-      正しいメールアドレスを入れてください。
+      {isEn ? "Please enter a valid email address." : "正しいメールアドレスを入れてください。"}
     </div>
   </div>
   <div class="mb-3">
     <textarea
       name="message"
       required
-      placeholder="お問い合わせ内容"
+      placeholder={isEn ? "Your message" : "お問い合わせ内容"}
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
     ></textarea>
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      お問い合わせ内容を入れてください。
+      {isEn ? "Please enter your message." : "お問い合わせ内容を入れてください。"}
     </div>
   </div>
-  <Button type="submit" size="lg" block>Send Message</Button>
+  <Button type="submit" size="lg" block>{isEn ? "Send Message" : "送信"}</Button>
   <div id="result" class="mt-3 text-center"></div>
 </form>
 
@@ -76,7 +79,7 @@ import Button from "./ui/button.astro";
   }
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ isEn }}>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
 
@@ -91,7 +94,7 @@ import Button from "./ui/button.astro";
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    result.innerHTML = isEn ? "Sending..." : "送信中...";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -114,7 +117,9 @@ import Button from "./ui/button.astro";
       })
       .catch((error) => {
         console.log(error);
-        result.innerHTML = "エラーが発生しました、メールから連絡をいただけると幸いです。";
+        result.innerHTML = isEn
+          ? "An error occurred. Please contact us directly by email."
+          : "エラーが発生しました、メールから連絡をいただけると幸いです。";
       })
       .then(function () {
         form.reset();

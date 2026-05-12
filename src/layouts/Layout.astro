@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Footer from "@/components/footer.astro";
 import Navbar from "@/components/navbar/navbar.astro";
+import { detectLocale } from "@/utils/i18n";
 import "@fontsource-variable/inter/index.css";
 
 import "../styles/global.css";
@@ -21,6 +22,7 @@ const resolvedImageWithDomain = siteUrl
   : undefined;
 
 const { title, description } = Astro.props;
+const locale = detectLocale(Astro.url.pathname);
 
 const makeTitle = title
   ? title + " | " + "Tedxakitaintluni"
@@ -32,7 +34,7 @@ const seoDescription =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -67,7 +69,7 @@ const seoDescription =
     />
   </head>
   <body>
-    <Navbar />
+    <Navbar locale={locale} />
     <slot />
     <Footer />
     <style is:global>

@@ -1,36 +1,64 @@
 ---
-// @ts-ignore
-import { Picture } from "astro:assets";
-import { Icon } from "astro-icon/components";
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
 ---
 <div class="mt-16 md:mt-1.5 mb-12">
-<h2 id="talktheme" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
-    トークテーマ
-</h2>
+  <h2 id="talktheme" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
+    {isEn ? "Talk Themes" : "トークテーマ"}
+  </h2>
 
-<div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
-<h3 class="text-3xl font-bold mb-4 text-gray-800">「衣食住」にした理由説明</h3>
-<div class="mb-6 pb-6">
-<div class="space-y-3 text-gray-700 text-sm leading-relaxed">
-<div class="space-y-2 text-gray-600">
-<p class="italic">明日をちょっとだけ良くしたい。</p>
-<p class="italic">あわよくば世界を変えてみたい。</p>
+  <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+    <h3 class="text-3xl font-bold mb-4 text-gray-800">
+      {isEn ? "Why we chose Clothing, Food, and Living" : "「衣食住」にした理由説明"}
+    </h3>
+    <div class="mb-6 pb-6">
+      <div class="space-y-3 text-gray-700 text-sm leading-relaxed">
+        {isEn ? (
+          <>
+            <div class="space-y-2 text-gray-600">
+              <p class="italic">We want to make tomorrow a little better.</p>
+              <p class="italic">If possible, we want to help change the world.</p>
+            </div>
+            <p class="text-center text-gray-700 font-medium mt-4">
+              What is something everyone with diverse backgrounds has in common?
+            </p>
+            <div class="bg-orange-50 rounded-md p-4 mt-4 border-l-4 border-orange-400">
+              <p class="text-gray-800 font-semibold">
+                Our answer is what we wear, what we eat, and how we live.
+              </p>
+            </div>
+            <div class="space-y-2 text-gray-600 mt-4">
+              <p>By sharing ideas around these everyday themes,</p>
+              <p>we hope to inspire small positive changes from tomorrow onward.</p>
+            </div>
+            <p class="text-center font-semibold text-gray-900 mt-4">
+              With that hope, we prepared talks centered on clothing, food, and living.
+            </p>
+          </>
+        ) : (
+          <>
+            <div class="space-y-2 text-gray-600">
+              <p class="italic">明日をちょっとだけ良くしたい。</p>
+              <p class="italic">あわよくば世界を変えてみたい。</p>
+            </div>
+            <p class="text-center text-gray-700 font-medium mt-4">
+              多様な背景を持つ参加者の皆様全員に共通するものって何だろう。
+            </p>
+            <div class="bg-orange-50 rounded-md p-4 mt-4 border-l-4 border-orange-400">
+              <p class="text-gray-800 font-semibold">
+                私たちの答えは「着ること」「食べること」「暮らすこと」。
+              </p>
+            </div>
+            <div class="space-y-2 text-gray-600 mt-4">
+              <p>衣食住に関するアイデアを聞いて、</p>
+              <p>明日からの生活を少しだけ良くするきっかけになりたい。</p>
+            </div>
+            <p class="text-center font-semibold text-gray-900 mt-4">
+              そんな願いを込め、「衣食住」にまつわるTalkを準備しました。
+            </p>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
 </div>
-<p class="text-center text-gray-700 font-medium mt-4">
-多様な背景を持つ参加者の皆様全員に共通するものって何だろう。
-</p>
-<div class="bg-orange-50 rounded-md p-4 mt-4 border-l-4 border-orange-400">
-<p class="text-gray-800 font-semibold">
-私たちの答えは「着ること」「食べること」「暮らすこと」。
-</p>
-</div>
-<div class="space-y-2 text-gray-600 mt-4">
-<p>衣食住に関するアイデアを聞いて、</p>
-<p>明日からの生活を少しだけ良くするきっかけになりたい。</p>
-</div>
-<p class="text-center font-semibold text-gray-900 mt-4">
-そんな願いを込め、「衣食住」にまつわるTalkを準備しました。
-</p>
-</div>
-</div>
-

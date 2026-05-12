@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import lastYear from "@/assets/last_year.jpg";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import TedxTeam from "@/components/tedxTeam.astro";
+import GandF from "@/assets/GandF.jpg";
+import ST from "@/assets/ST.png";
+import TG from "@/assets/T&G.jpg";
+
+const itemsGF = [
+  { label: "[Role]", value: "\n- Build sponsorship relationships\n- Communicate with sponsors and the university\n- Coordinate with external stakeholders" },
+  { label: "[From the Team Leader]", value: "The General & Finance Team is the mission control that builds the event foundation.\nFrom schedule management to sponsor meetings, we handle a broad range of operations." },
+];
+
+const itemsS = [
+  { label: "[Role]", value: "\n- Support speech drafts and workshop design\n- Support talk practice including delivery and expression\n- Japanese/English translation" },
+  { label: "[From the Team Leader]", value: "The Speaker Team organizes each speaker's ideas and helps them communicate clearly.\nWe support the event's core stories while sharpening our own communication skills." },
+];
+
+const itemsTG = [
+  { label: "[Role]", value: "\n- Website and Instagram operations\n- Promotion video production\n- Event goods and poster design" },
+  { label: "[From the Team Leader]", value: "The Tech & Graphic Team handles visual communication such as poster design and website operations.\nWe function as the publicity team that brings the event to a wider audience." },
+];
+
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">About TEDxAkitaIntlU</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+
+    <div class="mt-16 md:mt-1.5 mb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
+        <div class="flex justify-center items-center w-full min-w-0">
+          <Picture
+            src={lastYear}
+            alt="Last TEDx event"
+            widths={[200, 400, 600]}
+            sizes="(max-width: 768px) calc(100vw - 32px), 50vw"
+            loading="eager"
+            format="avif"
+            class="w-auto max-w-full h-auto object-contain"
+          />
+        </div>
+
+        <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+          <h3 class="text-3xl font-bold mb-4 text-gray-800">About Us</h3>
+          <p class="space-y-3 text-gray-700 text-lg">
+            We are a student organization at Akita International University with the motto of creating events in Akita.<br/>
+            Since 2018, we have held TEDx events seven times, run entirely by AIU students.<br/>
+            Our mission is to connect AIU, often seen as isolated, with local communities in Akita and to build a bridge between Akita and the world.
+          </p>
+        </div>
+      </div>
+    </div>
+    <TedxTeam heading="General & Finance Team" infoTitle="Team Overview" image={GandF} items={itemsGF} teamMembers={publishedTeamMembers} />
+    <TedxTeam heading="Speaker Team" infoTitle="Team Overview" image={ST} items={itemsS} teamMembers={publishedTeamMembers} />
+    <TedxTeam heading="Tech & Graphic Team" infoTitle="Team Overview" image={TG} items={itemsTG} teamMembers={publishedTeamMembers} />
+  </Container>
+</Layout>

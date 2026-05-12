@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Sectionhead from "@/components/sectionhead.astro";
+import PricingCard from "@/components/pricing.astro";
+
+const pricing = [
+  {
+    name: "AIU Undergraduate/Graduate",
+    price: "500 JPY",
+    popular: false,
+    features: [],
+    button: {
+      text: "Apply",
+      link: "https://forms.gle/9qQFGNkEdc9ytoDr9",
+    },
+  },
+  {
+    name: "General",
+    price: "950 JPY",
+    popular: true,
+    features: [],
+    button: {
+      text: "Apply",
+      link: "https://forms.gle/srv1PB1XdBGo5ucu6",
+    },
+  },
+  {
+    name: "Student",
+    price: "700 JPY",
+    popular: false,
+    features: [],
+    button: {
+      text: "Apply",
+      link: "https://forms.gle/nDmmUnqyKyGYJ7W27",
+    },
+  },
+];
+---
+
+<Layout title="Pricing">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Ticket Information</Fragment>
+      <Fragment slot="desc">
+        <p>Payment is accepted on the event day only.</p>
+        <p>Registration starts on April 1.</p>
+      </Fragment>
+    </Sectionhead>
+
+    <div
+      class="grid md:grid-cols-3 gap-10 mx-auto max-w-(--breakpoint-lg) mt-12">
+      {pricing.map((item) => <PricingCard plan={item} />)}
+    </div>
+  </Container>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Container from "@/components/container.astro";
+import Cta from "@/components/cta.astro";
+import Features from "@/components/features.astro";
+import Hero from "@/components/hero.astro";
+import Logos from "@/components/logos.astro";
+import Team from "@/components/team.astro";
+import Layout from "@/layouts/Layout.astro";
+import Route from "@/components/route.astro";
+import Theme from "@/components/theme.astro";
+import TalkTheme from "@/components/talktheme.astro";
+---
+
+<Layout
+  title="TEDx Akita International University"
+  description="TEDxAkitaIntlU is the TEDx event at Akita International University. Explore TEDx talks, speaker updates, event details, and ideas worth spreading in Akita, Japan.">
+  <Hero />
+  <Container>
+    <Features lang="en" />
+    <Route lang="en" />
+    <Theme lang="en" />
+    <TalkTheme lang="en" />
+    <Logos lang="en" />
+    <Team lang="en" />
+    <Cta lang="en" />
+  </Container>
+</Layout>

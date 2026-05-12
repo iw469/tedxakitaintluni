@@ -3,10 +3,13 @@
 import { Picture } from "astro:assets";
 import tedxSpark from "@/assets/SparkPoster.png";
 import { Icon } from "astro-icon/components";
+
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
 ---
 <div class="mt-16 md:mt-1.5 mb-12">
 <h2 id="overview" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
-    概要
+    {isEn ? "Overview" : "概要"}
 </h2>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
 <!-- Left: Logo -->
@@ -23,34 +26,34 @@ class="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
 </div>
 <!-- Right: Info Box -->
 <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
-<h3 class="text-3xl font-bold mb-4 text-gray-800">イベント情報</h3>
+<h3 class="text-3xl font-bold mb-4 text-gray-800">{isEn ? "Event Details" : "イベント情報"}</h3>
 <div class="space-y-3 text-gray-700 text-base">
 <div>
-<span class="font-bold">【テーマ】</span> Spark
+<span class="font-bold">{isEn ? "[Theme]" : "【テーマ】"}</span> Spark
 </div>
 <div>
-<span class="font-bold">【日時】</span> 2025年6月13日(土)
+<span class="font-bold">{isEn ? "[Date]" : "【日時】"}</span> {isEn ? "June 13, 2025 (Sat)" : "2025年6月13日(土)"}
 </div>
 <div>
-<span class="font-bold">【場所】</span> 国際教養大学アラムナイホール<br/>
-<span class="text-base ml-4">〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2</span>
+<span class="font-bold">{isEn ? "[Venue]" : "【場所】"}</span> {isEn ? "Akita International University Alumni Hall" : "国際教養大学アラムナイホール"}<br/>
+<span class="text-base ml-4">{isEn ? "193-2 Oku-Tsubakidai, Yuwa Tsubakigawa, Akita, 010-1211" : "〒010-1211 秋田県秋田市雄和椿川字奥椿岱 193-2"}</span>
 </div>
 <div>
-<span class="font-bold">【主催】</span> TEDxAkitaIntlU 運営委員会
+<span class="font-bold">{isEn ? "[Organizer]" : "【主催】"}</span> {isEn ? "TEDxAkitaIntlU Organizing Committee" : "TEDxAkitaIntlU 運営委員会"}
 </div>
 <div>
-<span class="font-bold">【形式】</span> ライブイベント
+<span class="font-bold">{isEn ? "[Format]" : "【形式】"}</span> {isEn ? "Live Event" : "ライブイベント"}
 </div>
 <div>
-<span class="font-bold">【出演】</span> スピーカー3名、3つのワークショップ
+<span class="font-bold">{isEn ? "[Program]" : "【出演】"}</span> {isEn ? "3 speakers and 3 workshops" : "スピーカー3名、3つのワークショップ"}
 </div>
 <div>
-<span class="font-bold">【観客】</span> 100 名<br/>
-<span class="text-base ml-4">国際教養大学学生 60 名、一般の方 40 名</span>
+<span class="font-bold">{isEn ? "[Audience]" : "【観客】"}</span> 100<br/>
+<span class="text-base ml-4">{isEn ? "60 AIU students and 40 general attendees" : "国際教養大学学生 60 名、一般の方 40 名"}</span>
 </div>
 <div>
-<span class="font-bold">【地域・世界への発信】</span><br/>
-<span class="text-base ml-4">TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿</span>
+<span class="font-bold">{isEn ? "[Global Reach]" : "【地域・世界への発信】"}</span><br/>
+<span class="text-base ml-4">{isEn ? "Talk videos will be published on the official TEDx YouTube channel." : "TEDx 公式 YouTube チャンネルへのスピーチ動画の投稿"}</span>
 </div>
 </div>
 </div>

@@ -11,6 +11,7 @@ const {
     heading = "概要",
     headingId = "overview",
     headingClass = "text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400",
+    infoTitle = "会社情報",
     items = [
         { label: "【テーマ】", value: "Spark" },
         { label: "【日時】", value: "2025年6月13日(土)" },
@@ -30,6 +31,15 @@ const {
         },
     ],
 } = Astro.props;
+
+type InfoItem = {
+    label: string;
+    value: string;
+    small?: boolean;
+    href?: string;
+};
+
+const normalizedItems = items as InfoItem[];
 ---
 
 <div class="mt-16 md:mt-1.5 mb-12">
@@ -47,9 +57,9 @@ const {
                 </div>
         <!-- Right: Info Box -->
         <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">会社情報</h3>
+            <h3 class="text-3xl font-bold mb-4 text-gray-800">{infoTitle}</h3>
             <div class="space-y-3 text-gray-700 text-base">
-                {items.map((item) => {
+                {normalizedItems.map((item) => {
                     const isUrl = (item.href && item.href.length) || /^https?:\/\//i.test(item.value);
                     return (
                         <div>

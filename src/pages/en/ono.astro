@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Cta from "@/components/cta.astro";
+import OnoImg from "@/assets/Ono.jpg";
+
+const title = "OnoProx Co., Ltd.";
+const items = [
+  { label: "[Company]", value: "OnoProx Co., Ltd." },
+  {
+    label: "[Profile]",
+    value:
+      "A community-based company headquartered in Araya, Akita City. The company provides gas, kerosene, and residential equipment, delivering dependable safety and comfort to local residents.",
+  },
+  { label: "[Website]", value: "https://onoprox.com/" },
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={OnoImg} imageAlt="Ono logo" imageHref="https://onoprox.com/" heading="Sponsor Tier" headingId="ono" infoTitle="Company Information" items={items} />
+    <Cta lang="en" />
+  </Container>
+</Layout>

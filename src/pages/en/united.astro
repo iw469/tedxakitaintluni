@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/container.astro";
+import Company from "@/components/company.astro";
+import Cta from "@/components/cta.astro";
+import UnitedImg from "@/assets/United.gif";
+
+const title = "United Keikaku Co., Ltd.";
+const items = [
+  { label: "[Company]", value: "United Keikaku Co., Ltd." },
+  {
+    label: "[Profile]",
+    value:
+      "United Keikaku creates social and financial value beyond expectations in industrial waste treatment, recycling, and renewable energy. We aim to give back more to society than we receive and to solve challenges faced by local communities.",
+  },
+  { label: "[Website]", value: "https://united.co.jp/" },
+];
+---
+
+<Layout title={title}>
+  <Container>
+    <Company image={UnitedImg} imageAlt="United logo" imageHref="https://united.co.jp/" heading="Sponsor Tier" headingId="united" infoTitle="Company Information" items={items} />
+    <Cta lang="en" />
+  </Container>
+</Layout>

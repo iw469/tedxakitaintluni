@@ -1,5 +1,9 @@
 ---
 import Link from "./ui/link.astro";
+import { localizePath } from "@/utils/i18n";
+
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
 ---
 
 <div
@@ -11,6 +15,6 @@ import Link from "./ui/link.astro";
     Organized by TEDxAkitaIntlU
   </p>
   <div class="flex mt-5">
-    <Link href="/pricing" style="inverted">チケットはこちらから！</Link>
+    <Link href={localizePath("/pricing", locale)} style="inverted">{isEn ? "Get Your Ticket" : "チケットはこちらから！"}</Link>
   </div>
 </div>

@@ -4,19 +4,23 @@ import { Icon } from "astro-icon/components";
 import Yuri from "@/assets/Yuri.png";
 import Ono from "@/assets/Ono.jpg";
 import United from "@/assets/United.gif";
+import { localizePath } from "@/utils/i18n";
 
 import { Image } from 'astro:assets';
+
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
 ---
 <div id="sponsor"></div>
 <div class="mt-24">
-  <h2 class="text-center text-slate-500 text-4xl md:text-5xl font-bold">協賛企業</h2>
+  <h2 class="text-center text-slate-500 text-4xl md:text-5xl font-bold">{isEn ? "Sponsors" : "協賛企業"}</h2>
   <div class="mt-10 space-y-12 w-full">
 
     <!-- First group -->
     <section>
-      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">ファースト</h3>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">{isEn ? "First" : "ファースト"}</h3>
       <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
-        <a href="/united" class="inline-block">
+        <a href={localizePath("/united", locale)} class="inline-block">
           <Image src={United} alt="United" class="h-10 md:h-16 w-auto cursor-pointer" />
         </a>
       </div>
@@ -24,7 +28,7 @@ import { Image } from 'astro:assets';
 
     <!-- Second group -->
     <section>
-      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">セカンド</h3>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">{isEn ? "Second" : "セカンド"}</h3>
       <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
 
       </div>
@@ -32,12 +36,12 @@ import { Image } from 'astro:assets';
 
     <!-- Third group -->
     <section>
-      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">サード</h3>
+      <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">{isEn ? "Third" : "サード"}</h3>
       <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
-        <a href="/yuri" class="inline-block" aria-label="YURI ホールディングス">
+        <a href={localizePath("/yuri", locale)} class="inline-block" aria-label="YURI Holdings">
           <Image src={Yuri} alt="Yuri" class="h-8 md:h-12 w-auto cursor-pointer" />
         </a>
-        <a href="/ono" class="inline-block">
+        <a href={localizePath("/ono", locale)} class="inline-block">
           <Image src={Ono} alt="Ono" class="h-8 md:h-12 w-auto cursor-pointer" />
         </a>
       </div>

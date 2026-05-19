@@ -1,0 +1,36 @@
+---
+// @ts-ignore
+import { Picture } from "astro:assets";
+import scheduleTed from "@/assets/scheduleted.png";
+
+const locale = Astro.props.lang ?? "ja";
+const isEn = locale === "en";
+---
+
+<div class="mt-16 md:mt-1.5 mb-12">
+  <h2 id="schedule" class="text-4xl lg:text-5xl font-bold lg:tracking-tight ml-8 text-orange-400">
+    {isEn ? "Schedule" : "スケジュール"}
+  </h2>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mt-8 items-center px-4 sm:px-2 md:px-0">
+    <div class="flex justify-center items-center w-full min-w-0">
+      <Picture
+        src={scheduleTed}
+        alt={isEn ? "TEDxAkitaIntlU event schedule" : "TEDxAkitaIntlU イベントスケジュール"}
+        widths={[480, 800, 1200, 1600]}
+        sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 36rem"
+        loading="lazy"
+        format="avif"
+        class="w-full max-w-2xl h-auto object-contain rounded-lg shadow-lg"
+      />
+    </div>
+
+    <div class="bg-gray-50 rounded-lg shadow-lg p-6 text-left">
+      <h3 class="text-3xl font-bold mb-4 text-gray-800">{isEn ? "Program Flow" : "当日の流れ"}</h3>
+      <div class="space-y-3 text-gray-700 text-base">
+        <p>{isEn ? "The full event timetable is shown on the left." : "左側の画像に当日のタイムテーブルを掲載しています。"}</p>
+        <p>{isEn ? "You can check sessions, breaks, and key moments at a glance." : "各セッションや休憩時間などを一目で確認できます。"}</p>
+        <p>{isEn ? "Please review the schedule before joining so you can plan your day." : "参加前にスケジュールをご確認いただき、当日の行動計画にお役立てください。"}</p>
+      </div>
+    </div>
+  </div>
+</div>

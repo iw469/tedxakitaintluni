@@ -2,14 +2,15 @@
 // @ts-ignore
 import { Picture } from "astro:assets";
 import blueball from "@/assets/blueball.png";
+
+const lang = Astro.props.lang ?? "ja";
+const isEn = lang === "en";
 ---
 
 <div class="mt-16 md:mt-1.5 mb-12">
-
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-8 items-start px-4 sm:px-2 md:px-0">
     <!-- Left: Image with Odyssey2025 Text -->
     <div class="flex flex-col items-center justify-start">
-      <h3 class="text-3xl font-bold mb-6 text-gray-800"></h3>
       <div class="relative w-full max-w-sm aspect-square flex items-center justify-center">
         <Picture
           src={blueball}
@@ -30,7 +31,7 @@ import blueball from "@/assets/blueball.png";
 
     <!-- Right: YouTube Videos Grid -->
     <div class="flex flex-col items-center justify-start">
-      <h3 class="text-3xl font-bold mb-6 text-gray-800 w-full text-center">イベント映像</h3>
+      <h3 class="text-3xl font-bold mb-6 text-gray-800 w-full text-center">{isEn ? "Event Videos" : "イベント映像"}</h3>
       <div class="grid grid-cols-3 gap-4 w-full">
         <!-- Video 1 -->
         <div class="aspect-[5/4]">

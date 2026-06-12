@@ -4,6 +4,12 @@ import { Icon } from "astro-icon/components";
 import Yuri from "@/assets/Yuri.png";
 import Ono from "@/assets/Ono.jpg";
 import United from "@/assets/United.gif";
+import Tdk from "@/assets/tdk.png";
+import Iris from "@/assets/Iris.png";
+import Atore from "@/assets/atore.png";
+import Cna from "@/assets/CNA.jpg";
+import Rice from "@/assets/rice.png";
+import Taxi from "@/assets/taxi.png";
 import { localizePath } from "@/utils/i18n";
 
 import { Image } from 'astro:assets';
@@ -23,6 +29,7 @@ const isEn = locale === "en";
         <a href={localizePath("/united", locale)} class="inline-block">
           <Image src={United} alt="United" class="h-10 md:h-16 w-auto cursor-pointer" />
         </a>
+        <Image src={Tdk} alt="TDK" class="h-8 md:h-12 w-auto" />
       </div>
     </section>
 
@@ -30,7 +37,7 @@ const isEn = locale === "en";
     <section>
       <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">{isEn ? "Second" : "セカンド"}</h3>
       <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
-
+        <Image src={Iris} alt="Iris" class="h-8 md:h-12 w-auto" />
       </div>
     </section>
 
@@ -51,7 +58,10 @@ const isEn = locale === "en";
     <section>
       <h3 class="text-center text-slate-400 text-xl md:text-2xl font-semibold mb-4">{isEn ? "In-kind Sponsors" : "物品協賛"}</h3>
       <div class="flex gap-8 md:gap-20 items-center justify-center flex-wrap">
-
+        <Image src={Atore} alt="Atore" class="h-8 md:h-12 w-auto" />
+        <Image src={Cna} alt="CNA" class="h-8 md:h-12 w-auto" />
+        <Image src={Rice} alt="Rice" class="h-8 md:h-12 w-auto" />
+        <Image src={Taxi} alt="Taxi" class="h-8 md:h-12 w-auto" />
       </div>
     </section>
 

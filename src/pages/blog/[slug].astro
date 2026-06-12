@@ -15,9 +15,36 @@ export async function getStaticPaths() {
 // Get the entry directly from the prop on render
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const siteUrl = Astro.site?.toString();
+const articleUrl = siteUrl
+  ? new URL(Astro.url.pathname, siteUrl).toString()
+  : undefined;
+const articleImageUrl =
+  siteUrl && entry.data.image?.src
+    ? new URL(entry.data.image.src, siteUrl).toString()
+    : undefined;
+
+const articleStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: entry.data.title,
+  description: entry.data.snippet,
+  author: {
+    "@type": "Person",
+    name: entry.data.author,
+  },
+  datePublished: entry.data.publishDate.toISOString(),
+  dateModified: entry.data.publishDate.toISOString(),
+  ...(articleUrl ? { url: articleUrl, mainEntityOfPage: articleUrl } : {}),
+  ...(articleImageUrl ? { image: articleImageUrl } : {}),
+};
 ---
 
-<Layout title={entry.data.title}>
+<Layout
+  title={entry.data.title}
+  description={entry.data.snippet}
+  structuredData={articleStructuredData}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
       <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">

@@ -10,11 +10,53 @@ import Route from "@/components/route.astro";
 import Theme from "@/components/theme.astro";
 import TalkTheme from "@/components/talktheme.astro";
 import Schedule from "@/components/schedule.astro";
+
+const siteUrl = Astro.site?.toString();
+const pageUrl = siteUrl
+  ? new URL(Astro.url.pathname, siteUrl).toString()
+  : undefined;
+const logoUrl = siteUrl ? new URL("/favicon.svg", siteUrl).toString() : undefined;
+
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "TEDxAkitaIntlU",
+  url: siteUrl,
+  ...(logoUrl ? { logo: logoUrl } : {}),
+  sameAs: ["https://x.com/tedxakitaintluni"],
+};
+
+const eventStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "TEDxAkitaIntlU",
+  description:
+    "TEDxAkitaIntlU is the TEDx event at Akita International University featuring talks, workshops, and ideas worth spreading.",
+  ...(pageUrl ? { url: pageUrl } : {}),
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  organizer: {
+    "@type": "Organization",
+    name: "TEDxAkitaIntlU",
+    ...(siteUrl ? { url: siteUrl } : {}),
+  },
+  location: {
+    "@type": "Place",
+    name: "Akita International University",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "JP",
+      addressRegion: "Akita",
+      addressLocality: "Akita",
+    },
+  },
+};
 ---
 
 <Layout
   title="TEDx Akita International University"
-  description="TEDxAkitaIntlU is the TEDx event at Akita International University. Explore TEDx talks, speaker updates, event details, and ideas worth spreading in Akita, Japan.">
+  description="TEDxAkitaIntlU is the TEDx event at Akita International University. Explore TEDx talks, speaker updates, event details, and ideas worth spreading in Akita, Japan."
+  structuredData={[organizationStructuredData, eventStructuredData]}>
   <Hero />
   <Container>
     <Features lang="en" />
